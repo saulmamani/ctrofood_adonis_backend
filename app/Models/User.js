@@ -21,6 +21,11 @@ class User extends Model {
     })
   }
 
+  //hidden columns
+  static get hidden(){
+    return ['password', 'created_at', 'updated_at']
+  }
+
   /**
    * A relationship on tokens is required for auth to
    * work. Since features like `refreshTokens` or
@@ -34,6 +39,7 @@ class User extends Model {
   tokens () {
     return this.hasMany('App/Models/Token')
   }
+  sales(){ return this.hasMany('App/Models/Sale')}
 }
 
 module.exports = User

@@ -7,7 +7,7 @@ class ProductSchema extends Schema {
   up () {
     this.create('products', (table) => {
       table.increments()
-      table.enum('categoria', ['Comida', 'Bebida'])
+      table.enu('categoria', ['Comida', 'Bebida'])
       table.string('nombre')
       table.decimal('precio', 10, 2)
       table.string('fotografia', 100).nullable()

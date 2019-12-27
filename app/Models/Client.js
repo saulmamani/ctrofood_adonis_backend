@@ -5,7 +5,16 @@ const Model = use('Model')
 
 class Client extends Model {
     //only references
-    
+    static get table(){
+        return 'clients'
+    }
+
+    static get primaryKey(){
+        return 'id'
+    }
+
+    //relations
+    sales (){ return this.hasMany('App/Models/Sale')}
 }
 
 module.exports = Client

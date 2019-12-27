@@ -19,3 +19,15 @@ const Route = use('Route')
 Route.get('/', () => {
   return { greeting: 'Hello world in JSON' }
 })
+
+Route.group(() => {
+Route.resource('products', 'ProductController').apiOnly();
+Route.resource('clients', 'ClientController').apiOnly();
+Route.resource('sales', 'SaleController').apiOnly();
+Route.resource('details', 'DetailController').apiOnly();
+Route.resource('users', 'UserController').apiOnly();
+}).middleware(['auth']);
+
+Route.post('autenticar', 'UserController.autenticar')
+
+
